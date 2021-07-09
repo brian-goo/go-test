@@ -183,10 +183,12 @@ func main() {
 	ch := make(chan int)
 	quit := make(chan int)
 	go getR(ch, quit)
+	// go getR(ch, quit)
 	for {
 		select {
 		case x := <-ch:
 			fmt.Println(x)
+			// fmt.Printf("%T", x)
 		case <-quit:
 			fmt.Println("quit")
 			return
